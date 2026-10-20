@@ -1,0 +1,151 @@
+:root{
+    --pink:#e84393; /* to assign a name to a var which is used repeatedly.*/
+}
+
+html{
+    font-size:62.5%;  /* to make 1rem=10px */
+    scroll-behavior: smooth; /* smooth transition to the bottom*/
+    scroll-padding-top: 6rem;/* so that the header for the scrolled section isnot hidden behind the fixed navbar;*/
+     overflow-x: hidden;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;/* so that width=padding+border+content*/
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    outline: none;
+    border:none;
+    text-decoration:none;
+    text-transform: capitalize;/* to make all first letters capital*/
+    transition: .2s linear;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    top:0; left:0; right:0;
+    background:#fff;
+    position:fixed;/* we don't want the navbar to scroll away like other elements , it must stay at the top*/
+    padding:2rem 9%;
+    box-shadow: 0.5rem 1rem rgba(0,0,0,0.1);
+}
+header .logo{
+    font-size: 3rem;
+    font-weight: bolder;
+    color:#333;
+}
+header .logo span{
+    color:var(--pink);
+}
+header .navbar a{
+    font-size: 2rem;
+    padding:0 1.5rem;
+    color:#666;
+}
+header .navbar a:hover{
+    color:var(--pink);
+}
+header .icons a{
+    color:#333;
+    font-size: 2.5rem;
+    margin-left: 1.5rem;
+
+}
+header .icons a:hover{
+    color:var(--pink);
+}
+header #toggler{
+    display: none;
+}
+header .fa-bars{
+    font-size: 3rem;
+    color: #333;
+    border-radius: .5rem;
+    padding:.5rem 1.5rem;
+    cursor: pointer;
+    border:.1rem solid rgba(0,0,0,0.3);
+    display: none;
+}
+section{
+    padding:2rem 9%;
+   
+}
+.home{
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    background:url(images/bg.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.home .content{
+    width:50rem;
+}
+.home .content h3{
+    font-size: 6rem;
+    color:#333;
+}
+.home .content span{
+    font-size: 3.5rem;
+    color:var(--pink);
+    padding:1rem 0;
+    line-height: 1.5;
+}
+
+.home .content p{
+    font-size: 1.5rem;
+    color:#999;
+    padding:1rem 0;
+    line-height: 1.5;
+}
+
+
+
+
+
+
+
+
+
+@media(max-width:991px){
+   html{
+    font-size: 55%;
+   }
+   header{
+     padding:2rem;
+   }
+}
+@media(max-width:768px){
+    header .fa-bars{
+     display: block;
+   }
+   header{
+     padding:2rem;
+   }
+   header .navbar{
+    position:absolute;
+    top:100%; left:0; right:0;
+    background:#eee;
+    border-top: 0.1rem solid rgba(0,0,0,0.1);
+    clip-path: polygon(0 0,100% 0, 100% 0, 0 0);/*make the dropdown menu invisible until the toggler is checked*/
+   }
+   header .navbar a{
+    padding:1.5rem;
+    margin:1.5rem;
+    background:#fff;
+    border:.1rem solid rgba(0,0,0,0.1);
+    display: block;
+   }
+   header #toggler:checked~ .navbar{
+         clip-path: polygon(0 0,100% 0,100% 100% ,0 100%);/*make dropdown menu visible when toggler is checked*/
+   }
+}
+@media(max-width:450px){
+   html{
+    font-size: 50%;
+   }
+   header{
+     padding:2rem;
+   }
+}
